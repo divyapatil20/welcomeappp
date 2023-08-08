@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<title > App 5 by divya </title>
+		<style>
+			*{ font-size : 40px ; }
+			body {background-color:lightblue; }
+		</style>
+		<script>
+			function show()
+			{
+				event.preventDefault();
+				let name = document.getElementById("name");
+				let ans = document.getElementById("ans");
+			
+				if (name.value == "")
+				{
+					alert("name can not be empty");	
+					ans.innerHTML= "";
+					name.focus();
+					return;
+				}
+				else if (name.value.trim() == "")
+				{
+					alert("name can not be spaces ");
+					name.value="";
+					ans.innerHTML= "";
+					name.focus();
+					return;
+				}
+				else if (! name.value.match (/^[A-Za-z]+$/))
+				{
+					alert("name shud contain only alpha ");
+					name.value="";
+					ans.innerHTML= "";
+					name.focus();
+					return;
+				}
+				let d = new Date();
+				let hr = d.getHours();
+				let reply="";
+				if (hr<12)		reply = "Good Morning " ;
+				else if (hr < 16)	reply = "Good Afternoon " ;
+				else if (hr < 21)	reply = "Good Evening " ;
+				else		reply = "Good Night " ;
+				let msg = reply + name.value ;
+				ans.innerHTML= msg;
+				
+			}
+
+
+		</script>
+	</head>
+	<body>
+	<center>
+		<h1>Welcome app by divya </h1>
+		<form onsubmit="show()">
+			<input type ="text" placeholder="Enter your name " id="name" />
+			<br><br>
+			<input type ="submit"/>
+		</form>
+		<h2 id="ans" style="color:red;"></h2>
+	</center>
+	</body>
+</html>
